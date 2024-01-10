@@ -1,0 +1,42 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/*bootstrap override */
+span.input-group-text{
+  background-color: var(--banner-green);
+}
+button.dropdown-toggle{
+  background-color: var(--banner-green);
+}
+
+
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+ --header-color: #0378B8;
+  --banner-green: #34DB7D;
+  --footer-bg: #3F3E3E;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+ul,li{
+  list-style: none;
+
+}
+
+section{
+  padding: 4rem 0;
+  /*background: #1e2125;*/
+}
+
+.flex{
+  display: flex;
+
+}
+
