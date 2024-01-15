@@ -4,7 +4,7 @@ import {slideInRouterAnimation} from "./app.animation";
 @Component({
   selector: 'app-root',
   template:`
-<!--    <app-header></app-header>-->
+    <app-header></app-header>
     <div [@slideInRouterAnimation]="o.isActivated ? o.activatedRoute : ''">
       <router-outlet #o="outlet"></router-outlet>
 

@@ -16,9 +16,10 @@ body{
 }
 
 :root{
- --header-color: #0378B8;
+ --header-color:white;
   --banner-green: #34DB7D;
   --footer-bg: #3F3E3E;
+  --hover-color: #CBC3E3;
 }
 a{
   text-decoration: none;
@@ -27,7 +28,6 @@ a{
 
 ul,li{
   list-style: none;
-
 }
 
 section{

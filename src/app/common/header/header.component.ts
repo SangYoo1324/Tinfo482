@@ -1,6 +1,6 @@
 import {Component, ElementRef, HostListener, QueryList, Renderer2, ViewChild, ViewChildren} from '@angular/core';
 import {RouterLink} from "@angular/router";
-import {NgClass, NgForOf, NgStyle} from "@angular/common";
+import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,8 @@ import {NgClass, NgForOf, NgStyle} from "@angular/common";
     RouterLink,
     NgForOf,
     NgClass,
-    NgStyle
+    NgStyle,
+    NgIf
   ],
   template:`
 <!--    pc-header-->
@@ -18,7 +19,7 @@ import {NgClass, NgForOf, NgStyle} from "@angular/common";
   <div class="header-con"  [ngStyle]="{'background-color': isHeaderTransparent? 'transparent': ' #1e2125'}">
     <div class="header__menus-logo-wrap">
       <div class="header__logo">
-        <a routerLink="" class="text-[28px]">This Is Title</a>
+        <a routerLink="" >&nbsp;ARBITRARY BUSINESS</a>
       </div>
       <!--    nav-bars -->
       <div class="header__menus">
@@ -40,6 +41,14 @@ import {NgClass, NgForOf, NgStyle} from "@angular/common";
 
         </ul>
       </div>
+      <div class="header-user">
+        <button class="button-34" role="button" routerLink="login">Login</button>
+        <button *ngIf="false" class="button-34" role="button">LogOut</button>
+        <div class="auth-box">
+          <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -57,10 +66,10 @@ import {NgClass, NgForOf, NgStyle} from "@angular/common";
 <!--  <div class="search-icon "><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>-->
 <!--</div>-->
   <div class="header__logo-mobile">
-    <a routerLink="" class="text-[28px]">This is Title</a>
+    <a routerLink="" class="text-[28px]">&nbsp;ARBITRARY BUSINESS</a>
   </div>
   <div class="menu-expansion-burger" (click)="triggerSideMenuBar($event)">
-    <i class="fa-solid fa-bars bg-white text-[20px] h-full"></i>
+    <i class="fa-solid fa-bars"></i>
   </div>
 </div>
 </header>
@@ -72,7 +81,8 @@ import {NgClass, NgForOf, NgStyle} from "@angular/common";
     <div class="mobile-side-bar__contents">
         <div class="mobile-side-bar__head">
           <div class="mobile-side-bar__btn-close">
-            <i class="fa-solid fa-circle-xmark" (click)="xButtonClick($event)"></i>
+            <i class="fa-solid fa-right-from-bracket back" (click)="xButtonClick($event)"></i>
+<!--            <i class="fa-solid fa-circle-xmark" (click)="xButtonClick($event)"></i>-->
 
           </div>
         </div>
@@ -121,9 +131,9 @@ export class HeaderComponent {
 
   navBarMenusInfo:any[]= [
     {firstNav: 'About',
-    secondNav:[{title:'Contact Us', routerLink: 'contact-us'},{title:'Join Us', routerLink: 'join-us'}, {title:'Why Us', routerLink: 'why-us'}]},
+    secondNav:[{title:'subMenu-1', routerLink: 'contact-us'},{title:'subMenu-2', routerLink: 'join-us'}, {title:'subMenu-3', routerLink: 'why-us'}]},
     {firstNav: 'ETC',
-      secondNav:[{title:'Blog', routerLink: 'blog'},{title:'docuseries', routerLink: 'docuseries'}]},
+      secondNav:[{title:'Submenu-1', routerLink: 'blog'},{title:'Submenu-2', routerLink: 'docuseries'}]},
   ];
 
   openSecondNavBar(i:number, event:Event, isMobile:boolean){

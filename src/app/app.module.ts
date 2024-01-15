@@ -9,6 +9,7 @@ import {MainComponent} from "./pages/main/main.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {SectionTitleComponent} from "./common/section-title/section-title.component";
+import {JumbotronComponent} from "./pages/main/jumbotron/jumbotron.component";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {SectionTitleComponent} from "./common/section-title/section-title.compon
 
     // main page components
     MainComponent,
+    JumbotronComponent
   ],
   imports: [
     BrowserModule,
