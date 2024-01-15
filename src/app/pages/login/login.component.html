@@ -1,6 +1,6 @@
 <section id="login" #login>
-  <div class="container" id="container">
-    <div class="form-container log-in-container">
+  <div class=" row" id="container">
+    <div class="log-in-container col-lg-6">
       <form action="#">
         <h1>Login</h1>
         <div class="social-container">
@@ -8,13 +8,16 @@
           <a href="#" class="social"><i class="fa-brands fa-google fa-2x"></i></a>
         </div>
         <span>or use your account</span>
-        <input type="email" placeholder="Email" />
+        <input type="email" placeholder="username" />
         <input type="password" placeholder="Password" />
-        <a href="#">Forgot your password?</a>
+        <div class="extra-option-wrap">
+          <a class="forget-password" href="#">Forgot your password?</a>
+          <a class="sign-up" routerLink="/signup">First time? Let's Sign up!</a>
+        </div>
         <button>Log In</button>
       </form>
     </div>
-    <div class="overlay-container">
+    <div class="overlay-container col-lg-6">
       <div class="overlay">
         <div class="overlay-panel overlay-right">
 
@@ -24,3 +27,5 @@
   </div>
 
 </section>
+
+<app-footer></app-footer>

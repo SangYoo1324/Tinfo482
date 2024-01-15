@@ -42,7 +42,7 @@ import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
         </ul>
       </div>
       <div class="header-user">
-        <button class="button-34" role="button" routerLink="login">Login</button>
+        <button class="button-34" role="button" routerLink="/login">Login</button>
         <button *ngIf="false" class="button-34" role="button">LogOut</button>
         <div class="auth-box">
           <i class="fa-solid fa-user"></i>
@@ -80,10 +80,19 @@ import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 <div #mobileSideBar class="mobile-side-bar">
     <div class="mobile-side-bar__contents">
         <div class="mobile-side-bar__head">
+          <div class="log-in-out-btn-wrap">
+            <div class="header-user">
+              <button class="button-34" role="button" routerLink="/login">Login</button>
+              <button *ngIf="false" class="button-34" role="button">LogOut</button>
+              <div class="auth-box">
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+            </div>
+          </div>
+
           <div class="mobile-side-bar__btn-close">
             <i class="fa-solid fa-right-from-bracket back" (click)="xButtonClick($event)"></i>
-<!--            <i class="fa-solid fa-circle-xmark" (click)="xButtonClick($event)"></i>-->
-
           </div>
         </div>
 

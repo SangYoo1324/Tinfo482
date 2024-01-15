@@ -1,0 +1,31 @@
+#signup{
+  background-color: #1e1f24;
+  width: 100%;
+
+}
+
+
+.signup-container{
+  width: 80%;
+  margin: 4rem auto;
+  background-color: lightgrey;
+}
+.wrap{
+  padding: 2rem;
+}
+
+form{
+  padding: 1rem;
+}
+
+span.input-group-text{
+  background-color: #1e2125;
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .signup-container{
+    width: 95%;
+
+  }
+}

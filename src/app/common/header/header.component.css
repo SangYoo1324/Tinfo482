@@ -147,7 +147,7 @@ img{
   display: flex;
   justify-content: right;
   font-size: 22px;
-  margin-top: 0.2rem;
+  margin-top: 0.4rem;
 }
 .auth-box>i{
   margin-right: 1rem;
@@ -193,7 +193,7 @@ img{
   z-index:10;
   position:fixed;
   width:100%;
-  height: 55px;
+  height: 65px;
 }
 
 .mobile-header-con{
@@ -260,10 +260,18 @@ img{
 
 .mobile-side-bar__head{
   background-color: #1e2125;
-  padding-top: 17px;
+  padding-top: 13px;
+  padding-bottom: 9px;
   border-bottom: 1px solid black;
-  height: 70px;
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
 
+}
+
+.log-in-out-btn-wrap{
+  display: flex;
+  width: 80%;
 }
 
 /* when mobile side-bar activated slides the contents container  */
@@ -283,10 +291,10 @@ img{
 .mobile-side-bar__btn-close>i{
   display: flex;
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   justify-content: right;
   margin-right: 10px;
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
 }
 .mobile-side-bar__body__menu-box-1 > ul{
   padding: 0;
@@ -463,6 +471,10 @@ iframe{
     width:100%;
   }
 
+  .header-user{
+    width: 50%;
+  }
+
   .header__logo{
     padding-right: 0px;
     /*padding-left: 50px;*/
@@ -549,6 +561,9 @@ iframe{
 }
 
 @media all and (max-width: 500px)  {
+  .header-user{
+    width: 80%;
+  }
   /*mobile-mode header*/
   .pc-header{
     display: none;
@@ -557,7 +572,7 @@ iframe{
     display: block;
   }
   .mobile-side-bar>.mobile-side-bar__contents{
-    width: 60%;
+    width: 80%;
   }
 
   .mobile-header-con{
