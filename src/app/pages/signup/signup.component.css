@@ -5,6 +5,10 @@
 }
 
 
+small{
+  color: red;
+}
+
 .signup-container{
   width: 80%;
   margin: 4rem auto;
@@ -22,6 +26,15 @@ span.input-group-text{
   background-color: #1e2125;
   color: white;
 }
+
+.submit-btn{
+  width: 50%;
+  margin: 1rem auto;
+  border-radius: 1rem;
+  border: 2px solid black;
+  font-weight: bold;
+}
+
 
 @media (max-width: 767px) {
   .signup-container{

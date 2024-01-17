@@ -10,6 +10,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {SectionTitleComponent} from "./common/section-title/section-title.component";
 import {JumbotronComponent} from "./pages/main/jumbotron/jumbotron.component";
+import {MemberService} from "./service/member.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -26,8 +28,9 @@ import {JumbotronComponent} from "./pages/main/jumbotron/jumbotron.component";
     HeaderComponent,
     BrowserAnimationsModule,
     SectionTitleComponent,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MemberService],
   exports: [
   ],
   bootstrap: [AppComponent]
