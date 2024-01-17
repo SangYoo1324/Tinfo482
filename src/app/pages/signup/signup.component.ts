@@ -33,7 +33,7 @@ import {MemberService} from "../../service/member.service";
               <div class="mb-3">
                 <div class="input-group">
                   <span class="input-group-text" id="basic-addon3">Password</span>
-                  <input formControlName="password" type="text" class="form-control" id="basic-url"
+                  <input formControlName="password" type="password" class="form-control" id="basic-url"
                          aria-describedby="basic-addon3 basic-addon4">
                 </div>
                 <div *ngIf="reactiveForm.get('password')!.touched && reactiveForm.get('password')!.hasError('required')" class="form-text" id="basic-addon4"><small>*password is required field</small></div>
@@ -45,7 +45,7 @@ import {MemberService} from "../../service/member.service";
                   <input [(ngModel)]="confirmPasswordValue"
                          [ngModelOptions]="{standalone: true}"
                          (ngModelChange)="confirmPasswordChange()"
-                         #confirmPassword="ngModel" name="confirmPassword" type="text" class="form-control" id="basic-url"
+                         #confirmPassword="ngModel" name="confirmPassword" type="password" class="form-control" id="basic-url"
                          aria-describedby="basic-addon3 basic-addon4">
                 </div>
                 <div class="form-text" id="basic-addon4"><small *ngIf="!isPasswordMatching && confirmPassword.touched">*password is not matching</small></div>

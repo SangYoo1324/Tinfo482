@@ -14,9 +14,27 @@ export class MemberService {
     return this.httpClient.post(this.API_PATH+"/api/signup",signupData);
   }
 
-  signIn(signInData:any){
+  login(signInData:any){
     return this.httpClient.post(this.API_PATH+"/api/login",signInData, {headers:this.requestHeader});
 
+  }
+
+  validation(verificationNumber:string, inputEmailPWUsername:any){
+    let formdata = new FormData();
+    formdata.append('verificationCode',verificationNumber);
+    for(const key in inputEmailPWUsername){
+      if(inputEmailPWUsername.hasOwnProperty(key)){
+        console.log(key);
+        formdata.append(key,inputEmailPWUsername[key]);
+      }
+    }
+    formdata.delete('address');
+
+  formdata.forEach((value,key)=>{
+    console.log(`${key}: ${value}`)
+  })
+
+    return this.httpClient.post(this.API_PATH+"/api/mfa/validate",formdata, {headers:this.requestHeader});
   }
 
 }

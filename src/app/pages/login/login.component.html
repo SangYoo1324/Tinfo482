@@ -1,20 +1,23 @@
 <section id="login" #login>
+  <app-loading [subject]="'login'"
+                [isActivated] = "isActivated"
+  ></app-loading>
   <div class=" row" id="container">
     <div class="log-in-container col-lg-6">
-      <form action="#">
+      <form [formGroup]="reactiveForm" (ngSubmit)="onFormSubmit()">
         <h1>Login</h1>
         <div class="social-container">
           <a href="#" class="social"><i class="fa fa-facebook fa-2x"></i></a>
           <a href="#" class="social"><i class="fa-brands fa-google fa-2x"></i></a>
         </div>
         <span>or use your account</span>
-        <input type="email" placeholder="username" />
-        <input type="password" placeholder="Password" />
+        <input formControlName="email" type="email" placeholder="email" />
+        <input formControlName="password" type="password" placeholder="Password" />
         <div class="extra-option-wrap">
           <a class="forget-password" href="#">Forgot your password?</a>
           <a class="sign-up" routerLink="/signup">First time? Let's Sign up!</a>
         </div>
-        <button>Log In</button>
+        <button type="submit" [disabled]="!reactiveForm.valid">Log In</button>
       </form>
     </div>
     <div class="overlay-container col-lg-6">
@@ -26,6 +29,10 @@
     </div>
   </div>
 
+
 </section>
+<app-validation *ngIf="triggerVerification"
+                [inputEmailPWUsername]="inputEmailPWUsername"
+></app-validation>
 
 <app-footer></app-footer>
