@@ -6,7 +6,8 @@ import { SignupComponent } from './signup.component';
 import {FooterComponent} from "../../common/footer/footer.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MemberService} from "../../service/member.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule
   ],
   providers:[
-    MemberService
+
   ]
 })
 export class SignupModule { }

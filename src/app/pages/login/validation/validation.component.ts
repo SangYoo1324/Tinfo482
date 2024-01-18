@@ -1,6 +1,7 @@
 import {Component, ElementRef, Input, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {MemberService} from "../../../service/member.service";
 import {Router} from "@angular/router";
+import {MemberAuthService} from "../../../_auth/member-auth.service";
 
 @Component({
   selector: 'app-validation',
@@ -44,7 +45,7 @@ import {Router} from "@angular/router";
 })
 export class ValidationComponent {
 
-  constructor(private memberService:MemberService,private router:Router){}
+  constructor(private memberService:MemberService,private router:Router,private memberAuthService:MemberAuthService){}
 
   @ViewChildren('input') inputs!: QueryList<ElementRef>;
 
@@ -86,9 +87,14 @@ export class ValidationComponent {
     this.inputs.toArray().forEach((e)=>{verificationNumber= verificationNumber+e.nativeElement.value});
     console.log(verificationNumber);
     console.log("data received from login:::"+this.inputEmailPWUsername);
-    this.memberService.validation(verificationNumber,this.inputEmailPWUsername).subscribe((resp)=>{
+    this.memberService.validation(verificationNumber,this.inputEmailPWUsername).subscribe((resp:any)=>{
       console.log(resp);
-      alert("Login Success!");
+      this.memberAuthService.setRoles(resp.roles);
+      this.memberAuthService.setToken(resp.accessToken);
+      this.memberAuthService.setUsernameEmail(resp.username,resp.email);
+      alert("Login Success! Hello, "+ resp.username);
+
+
       this.router.navigate(['']);
     },error => {
       alert("Login Failed... Please check your verification code");

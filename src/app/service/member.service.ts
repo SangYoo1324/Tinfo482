@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {envNow} from "../_env/env.now";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {MemberAuthService} from "../_auth/member-auth.service";
 
 @Injectable({
   providedIn: 'root'
