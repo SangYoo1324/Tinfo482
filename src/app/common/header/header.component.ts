@@ -1,7 +1,19 @@
-import {Component, ElementRef, HostListener, QueryList, Renderer2, ViewChild, ViewChildren} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  QueryList,
+  Renderer2,
+  signal,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {RouterLink} from "@angular/router";
-import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
+import {AsyncPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {MemberAuthService} from "../../_auth/member-auth.service";
+import {async} from "@angular/core/testing";
+import {BehaviorSubject} from "rxjs";
+import {AsnynchronousService} from "../../service/asnynchronous.service";
 
 @Component({
   selector: 'app-header',
@@ -11,7 +23,8 @@ import {MemberAuthService} from "../../_auth/member-auth.service";
     NgForOf,
     NgClass,
     NgStyle,
-    NgIf
+    NgIf,
+    AsyncPipe
   ],
   template:`
 <!--    pc-header-->
@@ -46,10 +59,10 @@ import {MemberAuthService} from "../../_auth/member-auth.service";
         <i *ngIf="isLoggedIn" routerLink="profile" class="fa-solid fa-user"></i>
         <i *ngIf="isLoggedIn" class="fa-solid fa-cart-shopping"></i>
       </div>
-      <div class="header-user" [ngClass]="{'not-logged-in':!isLoggedIn}">
+<!--      [ngClass]="{'not-logged-in':!isLoggedIn}"-->
+      <div class="header-user" >
         <button  *ngIf="!isLoggedIn" class="btn btn-outline-success" role="button" routerLink="/login">Login</button>
         <button (click)="logout()"  *ngIf="isLoggedIn" class="btn btn-outline-danger" role="button">LogOut</button>
-
       </div>
     </div>
   </div>
@@ -83,14 +96,14 @@ import {MemberAuthService} from "../../_auth/member-auth.service";
     <div class="mobile-side-bar__contents">
         <div class="mobile-side-bar__head">
           <div class="log-in-out-btn-wrap">
-            <div class="auth-box">
-              <i *ngIf="isLoggedIn" class="fa-solid fa-user"></i>
-              <i *ngIf="isLoggedIn" class="fa-solid fa-cart-shopping"></i>
-            </div>
+
             <div class="header-user">
               <button *ngIf="!isLoggedIn" class="btn btn-outline-success" role="button" routerLink="/login">Login</button>
               <button (click)="logout()" *ngIf="isLoggedIn" class="btn btn-outline-danger" role="button">LogOut</button>
-
+            </div>
+            <div class="auth-box">
+              <i *ngIf="isLoggedIn" class="fa-solid fa-user"></i>
+              <i *ngIf="isLoggedIn" class="fa-solid fa-cart-shopping"></i>
             </div>
           </div>
 
@@ -122,17 +135,21 @@ import {MemberAuthService} from "../../_auth/member-auth.service";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  isLoggedIn: boolean = false;
-
+  isLoggedIn:boolean = false;
   @ViewChildren('menu') navBarMenus!:QueryList<ElementRef>;
   @ViewChildren('mobileMenu') mobileMenu!:QueryList<ElementRef>;
   @ViewChild('mobileSideBar') mobileSideBar!:ElementRef;
 
-  constructor(private renderer:Renderer2,private memberAuthService:MemberAuthService) {
+  constructor(private renderer:Renderer2,private memberAuthService:MemberAuthService, private asyncService: AsnynchronousService) {
   }
   ngOnInit(){
     console.log(this.isHeaderTransparent);
-   this.isLoggedIn= this.memberAuthService.isLoggedIn();
+    console.log(this.memberAuthService.isLoggedIn() as boolean);
+    this.asyncService.isLoggedIn$.subscribe((bool)=>{
+        this.isLoggedIn = bool;
+    })
+
+
   }
 
   isHeaderTransparent = true;

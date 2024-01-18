@@ -139,17 +139,18 @@ img{
 }
 
 .header-user{
-  width: 22%;
+  width: 10%;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
 
 }
 .auth-box{
   display: flex;
-  justify-content: right;
+  justify-content: left;
   font-size: 22px;
   margin-top: 0.4rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+  margin-left: 1rem;
 }
 .auth-box>i{
   margin-right: 1rem;
@@ -557,7 +558,8 @@ iframe{
 
 @media all and (max-width: 500px)  {
   .header-user{
-    width: 80%;
+    width: 35%;
+    margin-left: 0.5rem;
   }
   /*mobile-mode header*/
   .pc-header{

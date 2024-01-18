@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import {AsnynchronousService} from "../service/asnynchronous.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MemberAuthService {
 
-  constructor() { }
+  constructor( private asyncService: AsnynchronousService) { }
 
   public setUsernameEmail(username:string, email:string){
     localStorage.setItem("username", JSON.stringify(username));
@@ -38,11 +39,12 @@ export class MemberAuthService {
   }
 
   public clear(){
+    this.asyncService.isLoggedIn$.next(false);
     localStorage.clear();
   }
 
-  public isLoggedIn(){
-    return this.getRoles() && this.getToken();
+  public isLoggedIn():boolean{
+    return (this.getRoles() !=null && this.getToken() !=null) as boolean;
   }
 
   public roleMatch(allowedRoles: string[]): boolean{

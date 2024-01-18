@@ -2,6 +2,7 @@ import {Component, ElementRef, Input, QueryList, ViewChild, ViewChildren} from '
 import {MemberService} from "../../../service/member.service";
 import {Router} from "@angular/router";
 import {MemberAuthService} from "../../../_auth/member-auth.service";
+import {AsnynchronousService} from "../../../service/asnynchronous.service";
 
 @Component({
   selector: 'app-validation',
@@ -45,7 +46,8 @@ import {MemberAuthService} from "../../../_auth/member-auth.service";
 })
 export class ValidationComponent {
 
-  constructor(private memberService:MemberService,private router:Router,private memberAuthService:MemberAuthService){}
+  constructor(private memberService:MemberService,private router:Router,private memberAuthService:MemberAuthService,
+              private asyncService: AsnynchronousService){}
 
   @ViewChildren('input') inputs!: QueryList<ElementRef>;
 
@@ -92,6 +94,7 @@ export class ValidationComponent {
       this.memberAuthService.setRoles(resp.roles);
       this.memberAuthService.setToken(resp.accessToken);
       this.memberAuthService.setUsernameEmail(resp.username,resp.email);
+      this.asyncService.isLoggedIn$.next(true);
       alert("Login Success! Hello, "+ resp.username);
 
 
