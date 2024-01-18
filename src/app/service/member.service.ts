@@ -8,11 +8,11 @@ import {MemberAuthService} from "../_auth/member-auth.service";
 })
 export class MemberService {
   API_PATH = envNow;
-  requestHeader =new HttpHeaders({"No-Auth": "true"});
+  requestHeader =new HttpHeaders({"No-Auth": "True"});
   constructor(private httpClient:HttpClient) { }
 
   signup(signupData:any){
-    return this.httpClient.post(this.API_PATH+"/api/signup",signupData);
+    return this.httpClient.post(this.API_PATH+"/api/signup",signupData, {headers:this.requestHeader});
   }
 
   login(signInData:any){
@@ -38,4 +38,12 @@ export class MemberService {
     return this.httpClient.post(this.API_PATH+"/api/mfa/validate",formdata, {headers:this.requestHeader});
   }
 
+
+  userApiTest(){
+    return this.httpClient.get(this.API_PATH+"/api/user/test", { responseType: 'text' });
+  }
+
+  adminApiTest(){
+    return this.httpClient.get(this.API_PATH+"/api/admin/test", { responseType: 'text' });
+  }
 }

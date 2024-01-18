@@ -201,13 +201,14 @@ export class SignupComponent {
        }
      }
      console.log(submitForm);
-     //async when login api finished
+     //async when signup api finished
      this.memberService.signup(submitForm).subscribe((data:any)=>{
-       alert("Login Success, hello "+data.username+"!");
+       alert("signup Success, hello "+data.username+"!");
+
      }, (err)=>{
        alert("Something went wrong...");
      });
-     // this.router.navigate(['/login']);
+     this.router.navigate(['/login']);
 
    }
 

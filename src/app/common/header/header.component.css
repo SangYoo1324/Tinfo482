@@ -142,12 +142,14 @@ img{
   width: 22%;
   display: flex;
   justify-content: space-between;
+
 }
 .auth-box{
   display: flex;
   justify-content: right;
   font-size: 22px;
   margin-top: 0.4rem;
+  margin-right: 1rem;
 }
 .auth-box>i{
   margin-right: 1rem;
@@ -599,4 +601,9 @@ iframe{
     width: 300px;
   }
   /* Mobile: footer:end  */
+}
+
+
+.not-logged-in{
+  width: 10%;
 }

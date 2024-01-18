@@ -26,10 +26,17 @@ export class AuthGuard implements CanActivate{
       const role = route.data["roles"] as Array<string>;
       console.log("Role requirement for this route::::"+ role);
 
+      // admin role has all privilege. So pass everything
+      if(this.memberAuthService.getRoles()[0].authority === 'ROLE_ADMIN') {
+        console.log("logged in user has ADMIN Role... accepting all paths");
+        return true}
+
       if(role){// if role array isn't null..
+
+        // admin role has all privilege. So pass everything
         if(role[0] === 'ROLE_ADMIN'){
           // backend verification step
-          
+          return true;
         }
         const match = this.memberAuthService.roleMatch(role);
 

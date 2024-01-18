@@ -2,17 +2,27 @@
 
 <div class="dummy">
 
-  <button routerLink="signup">signup</button>
-  <button routerLink="profile">user-role Auth guard test</button>
-  <button routerLink="admin">admin-role Auth guard test</button>
+
+  <div class="wrap">
+    <button routerLink="profile">user-role Auth guard test</button>
+    <button routerLink="admin">admin-role Auth guard test</button>
+    <button (click)="adminApiTest()">Admin API Test</button>
+    <button (click)="userApiTest()">User API Test</button>
+  </div>
+
   <h3>hi</h3>
 </div>
 
 <style>
-  .dummy{
-    height: 100vh;
+
+  .wrap{
+    margin-top: 10rem;
   }
   button{
-    margin-top: 10rem;
+    display: block;
+    margin-top: 0.5rem;
+  }
+  .dummy{
+    height: 100vh;
   }
 </style>

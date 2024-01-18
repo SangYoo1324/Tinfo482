@@ -43,6 +43,7 @@ export class AuthInterceptor implements HttpInterceptor{
         catchError(
           (err:HttpResponseBase)=>{
             console.log("error status:::"+err.status);
+            console.error(err);
             // 401 error -- unAuthorized
             if(err.status === 401)
             this.router.navigate(['/login']);
