@@ -33,11 +33,6 @@ export class AuthGuard implements CanActivate{
 
       if(role){// if role array isn't null..
 
-        // admin role has all privilege. So pass everything
-        if(role[0] === 'ROLE_ADMIN'){
-          // backend verification step
-          return true;
-        }
         const match = this.memberAuthService.roleMatch(role);
 
         if(match){

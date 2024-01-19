@@ -135,7 +135,7 @@ import {AsnynchronousService} from "../../service/asnynchronous.service";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  isLoggedIn:boolean = false;
+  isLoggedIn!:boolean;
   @ViewChildren('menu') navBarMenus!:QueryList<ElementRef>;
   @ViewChildren('mobileMenu') mobileMenu!:QueryList<ElementRef>;
   @ViewChild('mobileSideBar') mobileSideBar!:ElementRef;
@@ -143,8 +143,12 @@ export class HeaderComponent {
   constructor(private renderer:Renderer2,private memberAuthService:MemberAuthService, private asyncService: AsnynchronousService) {
   }
   ngOnInit(){
-    console.log(this.isHeaderTransparent);
     console.log(this.memberAuthService.isLoggedIn() as boolean);
+
+    //if isLoggedin() true, emit true for the isLoggedIn stream
+    if(this.memberAuthService.isLoggedIn()) this.asyncService.isLoggedIn$.next(true);
+
+    // subscribe the change of the isLoggedIn stream
     this.asyncService.isLoggedIn$.subscribe((bool)=>{
         this.isLoggedIn = bool;
     })
