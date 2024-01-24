@@ -4,6 +4,10 @@
   height: 100vh;
   position: relative;
 }
+
+.hidden-oauth2-btn{
+  display: none;
+}
 h1{
   margin-top: 1rem;
 }
@@ -54,6 +58,15 @@ input {
   height: 50px;
   width: 50px;
 }
+.icon-wrap{
+  display: flex;
+}
+.facebook{
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
 
 .social-container a>i{
   color: #1e2125;
@@ -100,4 +113,12 @@ button:hover{
   .overlay-container{
     height: 40vh;
   }
+}
+
+
+
+/*modal related*/
+
+.modal-header>h2{
+
 }

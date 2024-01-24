@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import {envNow} from "../_env/env.now";
+
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MemberAuthService} from "../_auth/member-auth.service";
+import {environmentVariables} from "../_env/env.variables";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MemberService {
-  API_PATH = envNow;
+  API_PATH = environmentVariables.envNow;
   requestHeader =new HttpHeaders({"No-Auth": "True"});
   constructor(private httpClient:HttpClient) { }
 
@@ -36,6 +37,10 @@ export class MemberService {
   })
 
     return this.httpClient.post(this.API_PATH+"/api/mfa/validate",formdata, {headers:this.requestHeader});
+  }
+
+  oAuth2Login(memberRequest:any){
+    return this.httpClient.post(this.API_PATH+"/api/oauth/login",memberRequest ,{headers:this.requestHeader});
   }
 
 

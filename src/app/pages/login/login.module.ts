@@ -9,6 +9,8 @@ import {TimerComponent} from "../../common/timer/timer.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {LoadingComponent} from "../../common/loading/loading.component";
 import {MemberService} from "../../service/member.service";
+import {GoogleSigninButtonModule} from "@abacritt/angularx-social-login";
+import {GeneralModalComponent} from "../../common/general-modal/general-modal.component";
 
 
 
@@ -24,6 +26,8 @@ import {MemberService} from "../../service/member.service";
     TimerComponent,
     ReactiveFormsModule,
     LoadingComponent,
+    GoogleSigninButtonModule,
+    GeneralModalComponent,
   ],
   providers:[
     MemberService,
