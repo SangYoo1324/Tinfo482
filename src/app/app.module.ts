@@ -17,6 +17,7 @@ import {AuthInterceptor} from "./_auth/auth.interceptor";
 import { ProfileModule } from './pages/profile/profile.module';
 import {LazyAuthGuard} from "./_auth/lazy.auth.guard";
 import {AdminComponent} from "./pages/main/admin/admin.component";
+import {SlideComponent} from "./pages/main/slide/slide.component";
 // import {AuthInterceptor} from "./_auth/auth.interceptor";
 // import {AuthGuard} from "./_auth/auth.guard";
 
@@ -40,6 +41,7 @@ import {AdminComponent} from "./pages/main/admin/admin.component";
     SectionTitleComponent,
     HttpClientModule,
     ProfileModule,
+    SlideComponent,
   ],
   providers: [MemberService,
     AuthGuard,
