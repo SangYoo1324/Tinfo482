@@ -7,18 +7,8 @@
       <form [formGroup]="reactiveForm" (ngSubmit)="onFormSubmit()">
         <h1>Login</h1>
         <div class="social-container">
-          <div class="hidden-oauth2-btn">
-
-          </div>
-          <div class="icon-wrap">
-            <img class="facebook" (click)="facebookOAuth2()" src="/assets/login/facebook.png" alt="">
-            <asl-google-signin-button size="large" theme="filled_blue" shape="circle" ></asl-google-signin-button>
-          </div>
-
-<!--          [size]="'large'" [theme]="'filled_blue'" [shape]="'circle'"-->
-
-<!--          <a href="#" class="social" (click)="facebookOAuth2()"><i class="fa fa-facebook fa-2x"></i></a>-->
-<!--          <a href="#" class="social " (click)="googleOAuth2()"><i class="fa-brands fa-google fa-2x"></i></a>-->
+          <a href="#" class="social"><i class="fa fa-facebook fa-2x"></i></a>
+          <a href="#" class="social"><i class="fa-brands fa-google fa-2x"></i></a>
         </div>
         <span>or use your account</span>
         <input formControlName="email" type="email" placeholder="email" />
@@ -40,18 +30,9 @@
   </div>
 
 
-<!--  just leaving as reference-->
-<!--  <app-general-modal>-->
-<!--    <div class="modal-header" contentLocation="header"><h2>This is header</h2></div>-->
-<!--    <div contentLocation="body">-->
-<!--      <asl-google-signin-button type="standard" [width]="200"  size="large" shape="pill"></asl-google-signin-button></div>-->
-<!--&lt;!&ndash;    <div contentLocation="footer">this is footer</div>&ndash;&gt;-->
-<!--  </app-general-modal>-->
-
 </section>
 <app-validation *ngIf="triggerVerification"
                 [inputEmailPWUsername]="inputEmailPWUsername"
 ></app-validation>
 
 <app-footer></app-footer>
-

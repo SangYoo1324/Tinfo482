@@ -19,13 +19,7 @@ import {LazyAuthGuard} from "./_auth/lazy.auth.guard";
 import {AdminComponent} from "./pages/main/admin/admin.component";
 // import {AuthInterceptor} from "./_auth/auth.interceptor";
 // import {AuthGuard} from "./_auth/auth.guard";
-import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
-import {
-  GoogleLoginProvider,
-  FacebookLoginProvider
-} from '@abacritt/angularx-social-login';
-import {environmentVariables} from "./_env/env.variables";
-import {LoginAuthGuard} from "./_auth/login.auth.guard";
+
 
 @NgModule({
   declarations: [
@@ -39,54 +33,21 @@ import {LoginAuthGuard} from "./_auth/login.auth.guard";
     AdminComponent
   ],
   imports: [
-
-    //animation Related
-    BrowserAnimationsModule,
     BrowserModule,
-
-
     AppRoutingModule,
     HeaderComponent,
+    BrowserAnimationsModule,
     SectionTitleComponent,
     HttpClientModule,
     ProfileModule,
-
-    // social login related
-    SocialLoginModule,
-
   ],
-  providers: [
-    MemberService,
+  providers: [MemberService,
     AuthGuard,
     LazyAuthGuard,
-    LoginAuthGuard,
     {
       multi: true,
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor
-    },
-
-    // social login related
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              environmentVariables.googleClientId
-            )
-          },
-          {
-            id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider(environmentVariables.facebookAppId)
-          }
-        ],
-        onError: (err) => {
-          console.error(err);
-        }
-      } as SocialAuthServiceConfig,
     }
   ],
   exports: [

@@ -14,7 +14,7 @@ import {AsnynchronousService} from "../../../service/asnynchronous.service";
         <div class="wrap">
           <h3>Email Verification</h3>
           <p>Please enter your 6 digit verfication code given from the email address </p>
-          <p> {{inputEmailPWUsername.email}}</p>
+          <p> samuel13241&#64;hotmail.co.kr</p>
           <h5>Verification Code expires in:  </h5>
           <app-timer></app-timer>
 

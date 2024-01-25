@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate{
         console.log("logged in user has ADMIN Role... accepting all paths");
         return true}
 
-      if(role){// if role array isn't null...
+      if(role){// if role array isn't null..
 
         const match = this.memberAuthService.roleMatch(role);
 
@@ -45,7 +45,6 @@ export class AuthGuard implements CanActivate{
       }
 
     }
-
 
     alert("You're not logged in. Please log in first!");
     this.router.navigate(['login']);

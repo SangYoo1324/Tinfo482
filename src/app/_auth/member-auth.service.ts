@@ -6,39 +6,21 @@ import {AsnynchronousService} from "../service/asnynchronous.service";
 })
 export class MemberAuthService {
 
-  expMin: number = 1;
-
   constructor( private asyncService: AsnynchronousService) { }
-
-  expChecker(){ // true : expired  false: not expired
-    const expSet = localStorage.getItem("exp");
-    if(expSet){
-      const expTimeStamp = JSON.parse(expSet);
-      const expirationTime = new Date(expTimeStamp).getTime();
-      console.log("exp Time:::"+ new Date(expTimeStamp).toString());
-      return (new Date().getTime() > expirationTime)
-
-    }else return false;
-
-  }
 
   public setUsernameEmail(username:string, email:string){
     localStorage.setItem("username", JSON.stringify(username));
     localStorage.setItem("email", JSON.stringify(email));
-    localStorage.setItem("exp", JSON.stringify(new Date().getTime()+this.expMin* 60*1000));
   }
 
   public getusernameEmail(){
-    if(this.expChecker()){localStorage.clear();
-      this.asyncService.isLoggedIn$.next(false);
-      return}
     return { username: JSON.parse(localStorage.getItem("username")!),
           email: JSON.parse(localStorage.getItem("email")!)
     };
   }
 
   public setRoles(roles:any[]){
-
+    console.log("setRoles::::"+ roles);
 
     localStorage.setItem("roles", JSON.stringify(roles));
   }
@@ -53,18 +35,15 @@ export class MemberAuthService {
   }
 
   public getToken(){
-
     return localStorage.getItem("jwtToken");
   }
 
-  // stream for logout button
   public clear(){
     this.asyncService.isLoggedIn$.next(false);
     localStorage.clear();
   }
 
   public isLoggedIn():boolean{
-    if(this.expChecker()) this.clear();
     return (this.getRoles() !=null && this.getToken() !=null) as boolean;
   }
 

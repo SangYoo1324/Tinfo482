@@ -1,27 +1,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-@import url(https://db.onlinewebfonts.com/c/f265387c0d976fea0d26fea134bbffc7?family=PitchSans-Medium);
-
-@font-face {
-  font-family: "PitchSans-Medium";
-  src: url("https://db.onlinewebfonts.com/t/f265387c0d976fea0d26fea134bbffc7.eot");
-  src: url("https://db.onlinewebfonts.com/t/f265387c0d976fea0d26fea134bbffc7.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/f265387c0d976fea0d26fea134bbffc7.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/f265387c0d976fea0d26fea134bbffc7.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/f265387c0d976fea0d26fea134bbffc7.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/f265387c0d976fea0d26fea134bbffc7.svg#PitchSans-Medium")format("svg");
-}
-
-
 /*bootstrap override */
-:root{
-  --header-color:white;
-  --banner-green: #34DB7D;
-  --footer-bg: #3F3E3E;
-  --hover-color: #CBC3E3;
-  --bs-body-font-family: PitchSans-Medium !important;
-}
-
 span.input-group-text{
   background-color: var(--banner-green);
 }
@@ -35,11 +14,14 @@ body{
   padding: 0;
   box-sizing: border-box;
   position: relative;
-  font-family: var(--bs-body-font-family);
-
 }
 
-
+:root{
+ --header-color:white;
+  --banner-green: #34DB7D;
+  --footer-bg: #3F3E3E;
+  --hover-color: #CBC3E3;
+}
 a{
   text-decoration: none;
   color: black;
