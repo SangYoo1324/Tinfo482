@@ -18,6 +18,7 @@ import { ProfileModule } from './pages/profile/profile.module';
 import {LazyAuthGuard} from "./_auth/lazy.auth.guard";
 import {AdminComponent} from "./pages/main/admin/admin.component";
 import {SlideComponent} from "./pages/main/slide/slide.component";
+import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig} from "@abacritt/angularx-social-login";
 // import {AuthInterceptor} from "./_auth/auth.interceptor";
 // import {AuthGuard} from "./_auth/auth.guard";
 
@@ -50,8 +51,34 @@ import {SlideComponent} from "./pages/main/slide/slide.component";
       multi: true,
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor
-    }
+    },
+
+
+
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '822814304752-798t4us6dbodv7d0gve0g3maat7nlb6g.apps.googleusercontent.com'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('clientId')
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    },
   ],
+
+
   exports: [
   ],
   bootstrap: [AppComponent]

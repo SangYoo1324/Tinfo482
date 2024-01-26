@@ -23,6 +23,9 @@ export class AuthGuard implements CanActivate{
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     console.log("Authguard triggered");
     if(this.memberAuthService.getToken() !==null){// if token exist in local cache,
+
+
+
       const role = route.data["roles"] as Array<string>;
       console.log("Role requirement for this route::::"+ role);
 

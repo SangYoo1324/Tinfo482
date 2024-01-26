@@ -9,6 +9,14 @@ import {TimerComponent} from "../../common/timer/timer.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {LoadingComponent} from "../../common/loading/loading.component";
 import {MemberService} from "../../service/member.service";
+import {
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  GoogleSigninButtonModule,
+  SocialAuthServiceConfig
+} from "@abacritt/angularx-social-login";
+import {env_var} from "../../_env/env.now";
+import {LoginPageAuthGuard} from "../../_auth/login.page.auth.guard";
 
 
 
@@ -24,9 +32,33 @@ import {MemberService} from "../../service/member.service";
     TimerComponent,
     ReactiveFormsModule,
     LoadingComponent,
+    GoogleSigninButtonModule,
   ],
   providers:[
     MemberService,
+    LoginPageAuthGuard,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              env_var.google_api_id
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider(env_var.facebook_api_id)
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    },
+
   ]
 })
 export class LoginModule { }

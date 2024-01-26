@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {AsnynchronousService} from "../service/asnynchronous.service";
+import {MemberService} from "../service/member.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MemberAuthService {
 
-  constructor( private asyncService: AsnynchronousService) { }
+  constructor( private asyncService: AsnynchronousService, private memberService:MemberService) { }
 
   public setUsernameEmail(username:string, email:string){
     localStorage.setItem("username", JSON.stringify(username));
@@ -44,7 +45,12 @@ export class MemberAuthService {
   }
 
   public isLoggedIn():boolean{
-    return (this.getRoles() !=null && this.getToken() !=null) as boolean;
+    // this.memberService.getLoginPersistTime().subscribe((time)=>{
+    //
+    // });
+
+    console.log("time passed :: "+ this.getExpirationTime() < new Date().getTime().toString() );
+    return (this.getRoles() !=null && this.getToken() !=null && this.getExpirationTime() !=null && this.getExpirationTime() > new Date().getTime()) as boolean;
   }
 
   public roleMatch(allowedRoles: string[]): boolean{
@@ -65,4 +71,15 @@ export class MemberAuthService {
     return isMatch;
   }
 
+  setExpirationTime(){
+    const exp = new Date().getTime() + 60*300*1000;
+    localStorage.setItem('exp', exp.toString());
+}
+
+  getExpirationTime(){
+    // this.memberService.getLoginPersistTime().subscribe((time)=>{
+    // console.log("expTime:::"+time);
+    // })
+    return parseInt(localStorage.getItem('exp')!,10);
+  }
 }

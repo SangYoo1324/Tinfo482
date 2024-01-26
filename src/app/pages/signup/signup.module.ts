@@ -7,6 +7,7 @@ import {FooterComponent} from "../../common/footer/footer.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MemberService} from "../../service/member.service";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {LoginPageAuthGuard} from "../../_auth/login.page.auth.guard";
 
 
 
@@ -23,7 +24,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
     HttpClientModule
   ],
   providers:[
-
+  LoginPageAuthGuard
   ]
 })
 export class SignupModule { }

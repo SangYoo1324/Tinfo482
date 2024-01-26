@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import {envNow} from "../_env/env.now";
+
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MemberAuthService} from "../_auth/member-auth.service";
+import {env_var} from "../_env/env.now";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MemberService {
-  API_PATH = envNow;
+  API_PATH = env_var.envNow;
   requestHeader =new HttpHeaders({"No-Auth": "True"});
   constructor(private httpClient:HttpClient) { }
 
@@ -45,5 +46,13 @@ export class MemberService {
 
   adminApiTest(){
     return this.httpClient.get(this.API_PATH+"/api/admin/test", { responseType: 'text' });
+  }
+
+  oAuthLogin(userRequestDto:any){
+    return this.httpClient.post(this.API_PATH+"/api/oauth/login",userRequestDto, {headers:this.requestHeader});
+  }
+
+  getLoginPersistTime(){
+    return this.httpClient.get(this.API_PATH+"/api/login/persisttime", {responseType: 'text'})
   }
 }

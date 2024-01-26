@@ -6,11 +6,12 @@ import {ForbiddenComponent} from "./common/errorPage/forbidden/forbidden.compone
 import {AuthGuard} from "./_auth/auth.guard";
 import {LazyAuthGuard} from "./_auth/lazy.auth.guard";
 import {AdminComponent} from "./pages/main/admin/admin.component";
+import {LoginPageAuthGuard} from "./_auth/login.page.auth.guard";
 
 const routes: Routes = [{path:'', component:MainComponent},
   {path: 'admin', component: AdminComponent,canActivate: [AuthGuard], data:{roles:['ROLE_ADMIN']} },
-{ path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
-{ path: 'signup', loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule) },
+{ path: 'login', canActivate:[LoginPageAuthGuard], loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
+{ path: 'signup', canActivate:[LoginPageAuthGuard], loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule) },
   {path: 'forbidden', component: ForbiddenComponent},
 { path: 'profile', loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule),
   canLoad: [LazyAuthGuard], data:{roles:['ROLE_USER']}}

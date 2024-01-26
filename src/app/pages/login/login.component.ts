@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ValidationComponent} from "./validation/validation.component";
 import {MemberService} from "../../service/member.service";
+import {FacebookLoginProvider, SocialAuthService, SocialUser} from "@abacritt/angularx-social-login";
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,9 @@ import {MemberService} from "../../service/member.service";
 })
 export class LoginComponent {
 
-  inputEmailPWUsername!: {email:string,password:string,  username:string};
+  inputEmailPWUsername!: {email:string,password:string,  username:string, provider:string};
   isActivated: boolean= false;
-  constructor(private memberService:MemberService) {
+  constructor(private memberService:MemberService, private authService:SocialAuthService) {
   }
 
   reactiveForm!:FormGroup;
@@ -22,6 +23,24 @@ export class LoginComponent {
         email: new FormControl(null,[Validators.required, Validators.email]),
         password: new FormControl(null,Validators.required),
       });
+
+      this.authService.authState.subscribe((user)=>{
+        console.log(user);
+        this.inputEmailPWUsername= {
+          email: user.email,
+          password: 'OAuth',
+          username: user.name,
+          provider: 'GOOGLE'
+        }
+        // also need to add provider GOOGLE
+        this.isActivated = true;
+        this.memberService.oAuthLogin(this.inputEmailPWUsername).subscribe((resp)=>{
+            console.log(resp);
+            this.triggerVerification =true;
+            this.isActivated=  false;
+        });
+      });
+
   }
 
   onFormSubmit(){
@@ -39,4 +58,11 @@ export class LoginComponent {
     });
   }
 
+
+  facebook_login(){
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((userData:SocialUser)=>{
+    console.log('Facebook login::::+userdata');
+
+    });
+  }
 }

@@ -147,7 +147,9 @@ export class HeaderComponent {
 
     //if isLoggedin() true, emit true for the isLoggedIn stream
     if(this.memberAuthService.isLoggedIn()) this.asyncService.isLoggedIn$.next(true);
-
+    else{
+      this.memberAuthService.clear();
+    }
     // subscribe the change of the isLoggedIn stream
     this.asyncService.isLoggedIn$.subscribe((bool)=>{
         this.isLoggedIn = bool;
