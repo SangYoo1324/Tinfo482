@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
 
     <div class="container">
 
-      <h1>Profile works!!!!</h1>
+      <h1> My Account</h1>
+
+      <h5>Hello, </h5>
 
     </div>
 
@@ -14,5 +16,6 @@ import { Component } from '@angular/core';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
+
 
 }
