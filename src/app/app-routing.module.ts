@@ -14,7 +14,8 @@ const routes: Routes = [{path:'', component:MainComponent},
 { path: 'signup', canActivate:[LoginPageAuthGuard], loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule) },
   {path: 'forbidden', component: ForbiddenComponent},
 { path: 'profile', loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule),
-  canLoad: [LazyAuthGuard], data:{roles:['ROLE_USER']}}
+  canLoad: [LazyAuthGuard], data:{roles:['ROLE_USER']}},
+  { path: 'flowers', loadChildren: () => import('./pages/flowers/flowers.module').then(m => m.FlowersModule) }
 ];
 
 @NgModule({

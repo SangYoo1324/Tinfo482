@@ -1,4 +1,4 @@
-import {animate, group, query, style, transition, trigger} from "@angular/animations";
+import {animate, group, query, state, style, transition, trigger} from "@angular/animations";
 
 export const slideInRouterAnimation = trigger('slideInRouterAnimation',[
   // transition between any two states
@@ -20,3 +20,19 @@ export const slideInRouterAnimation = trigger('slideInRouterAnimation',[
   )
 
 ]);
+
+export const transparency =
+  trigger('animate_transparency', [
+    state('false', style({opacity: 0, visibility: 'hidden'})),
+    state('true',style({opacity:1, visibility:'visible'})),
+    transition('false=>true',animate('1000ms ease-in')),
+    transition('true=>false', animate('1000ms ease-out'))
+  ])
+
+export const widthChange =
+  trigger('animate_widthChange',[
+    state('false',style({width:0})),
+    state('true',style({width: '50%'})),
+    transition('false=>true', animate('500ms ease-in')),
+    transition('true=>false', animate('500ms ease-out'))
+  ]);

@@ -30,21 +30,23 @@ import {AsnynchronousService} from "../../service/asnynchronous.service";
 <!--    pc-header-->
 <header class="pc-header" >
 
-  <div class="header-con"  [ngStyle]="{'background-color': isHeaderTransparent? 'transparent': ' #1e2125'}">
+  <div class="header-con"  [ngStyle]="{'background-color': isHeaderTransparent? 'transparent': ' #375B50'}">
     <div class="header__menus-logo-wrap">
       <div class="header__logo">
-        <a routerLink="" >&nbsp;ARBITRARY BUSINESS</a>
+        <a routerLink="" >&nbsp;TERRA TREASURES</a>
       </div>
       <!--    nav-bars -->
       <div class="header__menus">
         <ul>
           <li  *ngFor="let firstMenu of navBarMenusInfo; let i=index"
-            class="header__menus-1st" #menu (click)="openSecondNavBar(i, $event, false)">{{firstMenu.firstNav}} &nbsp;<i class="fa-solid fa-caret-down"></i>
+               [routerLink]="firstMenu.routerLink"
+            class="header__menus-1st" #menu (click)="openSecondNavBar(i, $event, false)">{{firstMenu.firstNav}} &nbsp;
+<!--            <i class="fa-solid fa-caret-down"></i>-->
 <!--            2nd nav-bar-->
-            <ul class="header__menus-2nd">
-              <li *ngFor="let secondMenu of navBarMenusInfo[i].secondNav; let j =index">
-                <a [routerLink]="secondMenu.routerLink" >{{secondMenu.title}}</a></li>
-            </ul>
+<!--            <ul class="header__menus-2nd">-->
+<!--              <li *ngFor="let secondMenu of navBarMenusInfo[i].secondNav; let j =index">-->
+<!--                <a [routerLink]="secondMenu.routerLink" >{{secondMenu.title}}</a></li>-->
+<!--            </ul>-->
           </li>
 
           <li class="header__menus-1st" >Blog &nbsp;
@@ -81,7 +83,7 @@ import {AsnynchronousService} from "../../service/asnynchronous.service";
 <!--  <div class="search-icon "><a href="#"><i class="fa-brands fa-searchengin"></i></a></div>-->
 <!--</div>-->
   <div class="header__logo-mobile">
-    <a routerLink="" class="text-[28px]">&nbsp;ARBITRARY BUSINESS</a>
+    <a routerLink="" class="text-[28px]">&nbsp;TERRA ???? FLOWERS</a>
   </div>
   <div class="menu-expansion-burger" (click)="triggerSideMenuBar($event)">
     <i class="fa-solid fa-bars"></i>
@@ -168,8 +170,10 @@ export class HeaderComponent {
 
   navBarMenusInfo:any[]= [
     {firstNav: 'About',
+      routerLink: 'about',
     secondNav:[{title:'subMenu-1', routerLink: 'contact-us'},{title:'subMenu-2', routerLink: 'join-us'}, {title:'subMenu-3', routerLink: 'why-us'}]},
-    {firstNav: 'ETC',
+    {firstNav: 'Shop',
+      routerLink: 'flowers',
       secondNav:[{title:'Submenu-1', routerLink: 'blog'},{title:'Submenu-2', routerLink: 'docuseries'}]},
   ];
 

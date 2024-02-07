@@ -93,8 +93,9 @@ export class ValidationComponent {
       console.log(resp);
       this.memberAuthService.setRoles(resp.roles);
       this.memberAuthService.setToken(resp.accessToken);
-      this.memberAuthService.setUsernameEmail(resp.username,resp.email);
+      this.memberAuthService.setUsernameEmail(resp.username,resp.email, resp.id);
       this.memberAuthService.setExpirationTime();
+
       this.asyncService.isLoggedIn$.next(true);
       alert("Login Success! Hello, "+ resp.username);
 

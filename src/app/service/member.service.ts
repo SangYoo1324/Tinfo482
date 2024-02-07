@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MemberAuthService} from "../_auth/member-auth.service";
 import {env_var} from "../_env/env.now";
+import {Address} from "../../interfaces";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -54,5 +56,19 @@ export class MemberService {
 
   getLoginPersistTime(){
     return this.httpClient.get(this.API_PATH+"/api/login/persisttime", {responseType: 'text'})
+  }
+
+
+
+    addressDataStream:BehaviorSubject<any> = new BehaviorSubject<any>(null);
+
+  getAddress(id: number){
+    console.log("user_id : "+ id);
+    return this.httpClient.get(this.API_PATH+"/api/address/"+id);
+  }
+
+
+  updateAddress(id: number, address:Address){
+    return this.httpClient.patch(this.API_PATH+"/api/address/"+id, address);
   }
 }

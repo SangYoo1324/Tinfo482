@@ -71,14 +71,14 @@ img{
 
 .bar{
   width: 1px;
-  background-color: var(--header-color);
+  background-color: #375B50;
   padding: 0;
 
 
 }
 
 .header__menus>ul>li:hover{
-  background-color: var(--header-color);
+  background-color: #375B50;
   color: black;
 }
 
@@ -90,7 +90,7 @@ img{
   width: 100%;
   position:absolute;
   color: rgba(255,255,255,0.7);
-  background-color: var(--header-color);
+  background-color: #375B50;
   top:55px;
   left: 0;
   padding-left: 1px;
@@ -193,7 +193,7 @@ img{
 }
 
 .mobile-header-con{
-  background-color: #1e2125;
+  background-color: #375B50;
 
   display: none;
   height: 100%;
@@ -238,7 +238,7 @@ img{
 
 /* when side-bar not active, move sidebar by x-100%(outside screen)  */
 .mobile-side-bar>.mobile-side-bar__contents{
-  background-color: #1e2125;
+  background-color: #375B50;
   width: 30%;
   height: 100%;
   margin-left: auto;
@@ -255,7 +255,7 @@ img{
 }
 
 .mobile-side-bar__head{
-  background-color: #1e2125;
+  background-color: #375B50;
   padding-top: 13px;
   padding-bottom: 9px;
   border-bottom: 1px solid black;
@@ -336,12 +336,12 @@ ul.mobile-side-bar__menus-2nd{
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-in-out, background-color 0.5s ease-in-out;
-  background-color: #1e2125;
+  background-color: #375B50;
   /* cursor: pointer; */
 }
 
 .mobile-side-bar__body{
-  background-color: #1e2125;
+  background-color: #375B50;
   height: 5rem;
   flex-grow: 1;
 }

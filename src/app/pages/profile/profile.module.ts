@@ -5,6 +5,9 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import {AuthGuard} from "../../_auth/auth.guard";
 import {LazyAuthGuard} from "../../_auth/lazy.auth.guard";
+import {PageTitleComponent} from "../../common/page-title/page-title.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -13,11 +16,13 @@ import {LazyAuthGuard} from "../../_auth/lazy.auth.guard";
   ],
   imports: [
     CommonModule,
-    ProfileRoutingModule
+    ProfileRoutingModule,
+    PageTitleComponent,
+    FormsModule,
   ],
   providers:[
     AuthGuard,
-    LazyAuthGuard
+    LazyAuthGuard,
   ]
 })
 export class ProfileModule { }
