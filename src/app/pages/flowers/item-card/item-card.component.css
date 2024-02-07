@@ -1,0 +1,52 @@
+
+
+.bottom{
+  max-height: 50px;
+}
+.bottom>*{
+  font-weight: bold;
+  color: #375B50;
+}
+
+.price>span{
+  font-weight: lighter;
+}
+
+.top{
+  position:relative;
+  border-radius: 5px;
+  background: black;
+  height: 400px;
+  width: 100%;
+}
+
+.cover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  transition: background-color 0.3s ease;
+}
+
+.top:hover .cover-overlay{
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.local-delivery{
+  padding-top: 0.5rem;
+  margin-right: 0.2rem;
+}
+.button{
+  width: 85%;
+  margin-left: auto;
+  padding: 0.2rem 0.3rem;
+  text-align: center;
+  background: #375B50;
+  color: white;
+  border-radius: 1rem;
+
+}
+
