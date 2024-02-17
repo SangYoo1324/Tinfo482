@@ -10,15 +10,21 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {SectionTitleComponent} from "./common/section-title/section-title.component";
 import {JumbotronComponent} from "./pages/main/jumbotron/jumbotron.component";
-import {MemberService} from "./service/member.service";
+import {MemberService} from "./_service/member.service";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthGuard} from "./_auth/auth.guard";
 import {AuthInterceptor} from "./_auth/auth.interceptor";
 import { ProfileModule } from './pages/profile/profile.module';
 import {LazyAuthGuard} from "./_auth/lazy.auth.guard";
-import {AdminComponent} from "./pages/main/admin/admin.component";
+import {AdminComponent} from "./pages/admin/admin.component";
 import {SlideComponent} from "./pages/main/slide/slide.component";
 import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig} from "@abacritt/angularx-social-login";
+import {PageTitleComponent} from "./common/page-title/page-title.component";
+import {PostFlowerComponent} from "./pages/admin/post-flower/post-flower.component";
+import {PostAccComponent} from "./pages/admin/post-acc/post-acc.component";
+import {TableComponent} from "./common/table/table.component";
+import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
+import {ListAdminPanelComponent} from "./pages/admin/list-admin-panel/list-admin-panel.component";
 // import {AuthInterceptor} from "./_auth/auth.interceptor";
 // import {AuthGuard} from "./_auth/auth.guard";
 
@@ -43,6 +49,13 @@ import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig} fro
     HttpClientModule,
     ProfileModule,
     SlideComponent,
+    PageTitleComponent,
+    PostFlowerComponent,
+    PostAccComponent,
+    TableComponent,
+    CKEditorModule,
+    ListAdminPanelComponent
+
   ],
   providers: [MemberService,
     AuthGuard,

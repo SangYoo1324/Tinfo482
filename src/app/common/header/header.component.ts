@@ -13,7 +13,7 @@ import {AsyncPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {MemberAuthService} from "../../_auth/member-auth.service";
 import {async} from "@angular/core/testing";
 import {BehaviorSubject} from "rxjs";
-import {AsnynchronousService} from "../../service/asnynchronous.service";
+import {AsnynchronousService} from "../../_service/asnynchronous.service";
 
 @Component({
   selector: 'app-header',

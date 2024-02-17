@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ValidationComponent} from "./validation/validation.component";
-import {MemberService} from "../../service/member.service";
+import {MemberService} from "../../_service/member.service";
 import {FacebookLoginProvider, SocialAuthService, SocialUser} from "@abacritt/angularx-social-login";
 
 @Component({

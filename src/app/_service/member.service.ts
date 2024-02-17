@@ -43,19 +43,22 @@ export class MemberService {
 
 
   userApiTest(){
-    return this.httpClient.get(this.API_PATH+"/api/user/test", { responseType: 'text' });
+    return this.httpClient.get(this.API_PATH+"/api/user/test");
+    // { responseType: 'text' }
   }
 
   adminApiTest(){
-    return this.httpClient.get(this.API_PATH+"/api/admin/test", { responseType: 'text' });
+    return this.httpClient.get(this.API_PATH+"/api/admin/test");
   }
 
   oAuthLogin(userRequestDto:any){
-    return this.httpClient.post(this.API_PATH+"/api/oauth/login",userRequestDto, {headers:this.requestHeader});
+    return this.httpClient.post(this.API_PATH+"/api/oauth/login",userRequestDto);
+    // {responseType: 'text'}
   }
 
   getLoginPersistTime(){
-    return this.httpClient.get(this.API_PATH+"/api/login/persisttime", {responseType: 'text'})
+    return this.httpClient.get(this.API_PATH+"/api/login/persisttime")
+    // {responseType: 'text'}
   }
 
 

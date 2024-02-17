@@ -1,0 +1,78 @@
+/*:root {*/
+/*  --ck-powered-by-line-height: 1px;*/
+/*  --ck-powered-by-padding-vertical: 2px;*/
+/*  --ck-powered-by-padding-horizontal: 4px;*/
+/*  --ck-powered-by-text-color: hsl(0, 0%, 31%);*/
+/*  --ck-powered-by-border-radius: 100px;*/
+/*  --ck-powered-by-background: hsl(0, 0%, 100%);*/
+/*}*/
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 300px;
+}
+
+small{
+  color: red;
+}
+
+
+label,p,h1,h3{
+  color: black;
+
+}
+label{
+  display: block;
+}
+.img_wrap{
+  position: relative;
+  width: 90%;
+  height: 200px;
+}
+img{
+  width: 100%;
+  height: 200px;
+  position: absolute;
+}
+.uploaded_img{
+  cursor: pointer;
+}
+
+input{
+  background-color: white;
+}
+
+.upload_image_btn{
+  cursor: pointer;
+}
+
+#file{
+  display: none;
+}
+
+input{
+  width: 80%;
+  display: block;
+}
+
+select{
+  width: 80%;
+}
+
+.btn-wrap{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.label-wrap{
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.expl{
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #375B50;
+  width: 80%;
+  margin: 2rem auto;
+}

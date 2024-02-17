@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {AsnynchronousService} from "../service/asnynchronous.service";
-import {MemberService} from "../service/member.service";
+import {AsnynchronousService} from "../_service/asnynchronous.service";
+import {MemberService} from "../_service/member.service";
 
 @Injectable({
   providedIn: 'root'

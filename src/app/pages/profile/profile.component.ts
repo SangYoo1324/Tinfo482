@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {transparency, widthChange} from "../../app.animation";
-import {MemberService} from "../../service/member.service";
+import {MemberService} from "../../_service/member.service";
 import {Address} from "../../../interfaces";
 import {filter, Observable} from "rxjs";
 
@@ -30,6 +30,8 @@ import {filter, Observable} from "rxjs";
           <div class="username_wrap">
             <label class="fw-bold">Access Authorization: &nbsp;</label>
             <span>{{access_role}}</span>
+            &nbsp;&nbsp;
+            <span class="admin-btn" routerLink="/admin" *ngIf="access_role == 'ROLE_ADMIN'"> Admin-Panel</span>
           </div>
           <div class="login_dura_wrap">
             <label class="fw-bold">Login Session expires in: &nbsp;</label>

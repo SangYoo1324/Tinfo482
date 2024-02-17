@@ -5,7 +5,7 @@ import { SignupRoutingModule } from './signup-routing.module';
 import { SignupComponent } from './signup.component';
 import {FooterComponent} from "../../common/footer/footer.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MemberService} from "../../service/member.service";
+import {MemberService} from "../../_service/member.service";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {LoginPageAuthGuard} from "../../_auth/login.page.auth.guard";
 

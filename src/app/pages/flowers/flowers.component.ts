@@ -39,7 +39,7 @@ import { Component } from '@angular/core';
     <div class="container">
       <div class="row">
         <div *ngFor="let item of itemObjectArray let i=index" class="col-lg-3 box">
-          <app-item-card *ngIf=" i !==3"></app-item-card>
+          <app-item-card [routerLink]="'/flowers/'+item.id" *ngIf=" i !==3"></app-item-card>
           <div class="placeholder" *ngIf="i ===3">
             <div class="wrap">
               <p>Looking for same day flower delivery?
@@ -60,31 +60,41 @@ export class FlowersComponent {
   itemObjectArray = [
     {
       name: "aaaaaa",
-      price: 1},
+      price: 1,
+    id:1
+    },
     {
       name: "aaaaaa",
-      price: 1},
+      price: 1,
+      id:1},
     {
       name: "aaaaaa",
-      price: 1},
+      price: 1,
+      id:1},
     {
       name: "aaaaaa",
-      price: 1},
+      price: 1,
+      id:1},
     {
       name: "aaaaaa",
-      price: 1},
+      price: 1,
+      id:1},
     {
       name: "aaaaaa",
-      price: 1},
+      price: 1,
+      id:1},
     {
       name: "aaaaaa",
-      price: 1},
+      price: 1,
+      id:1},
     {
       name: "aaaaaa",
-      price: 1},
+      price: 1,
+      id:1},
     {
       name: "aaaaaa",
-      price: 1}
+      price: 1,
+      id:1}
   ]
 
 

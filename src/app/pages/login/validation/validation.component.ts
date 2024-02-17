@@ -1,8 +1,8 @@
 import {Component, ElementRef, Input, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {MemberService} from "../../../service/member.service";
+import {MemberService} from "../../../_service/member.service";
 import {Router} from "@angular/router";
 import {MemberAuthService} from "../../../_auth/member-auth.service";
-import {AsnynchronousService} from "../../../service/asnynchronous.service";
+import {AsnynchronousService} from "../../../_service/asnynchronous.service";
 
 @Component({
   selector: 'app-validation',

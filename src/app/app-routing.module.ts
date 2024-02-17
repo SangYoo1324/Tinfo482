@@ -5,7 +5,7 @@ import {PageNotFoundComponent} from "./common/errorPage/page-not-found/page-not-
 import {ForbiddenComponent} from "./common/errorPage/forbidden/forbidden.component";
 import {AuthGuard} from "./_auth/auth.guard";
 import {LazyAuthGuard} from "./_auth/lazy.auth.guard";
-import {AdminComponent} from "./pages/main/admin/admin.component";
+import {AdminComponent} from "./pages/admin/admin.component";
 import {LoginPageAuthGuard} from "./_auth/login.page.auth.guard";
 
 const routes: Routes = [{path:'', component:MainComponent},

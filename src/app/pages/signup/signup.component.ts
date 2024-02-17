@@ -2,7 +2,7 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {BehaviorSubject, Observable} from "rxjs";
-import {MemberService} from "../../service/member.service";
+import {MemberService} from "../../_service/member.service";
 
 @Component({
   selector: 'app-signup',

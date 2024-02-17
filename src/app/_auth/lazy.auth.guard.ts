@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {CanLoad, Route, Router, UrlSegment, UrlTree} from "@angular/router";
 import {Observable} from "rxjs";
 import {MemberAuthService} from "./member-auth.service";
-import {MemberService} from "../service/member.service";
+import {MemberService} from "../_service/member.service";
 
 @Injectable({
   providedIn: 'root'

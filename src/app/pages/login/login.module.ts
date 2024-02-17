@@ -8,7 +8,7 @@ import {ValidationComponent} from "./validation/validation.component";
 import {TimerComponent} from "../../common/timer/timer.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {LoadingComponent} from "../../common/loading/loading.component";
-import {MemberService} from "../../service/member.service";
+import {MemberService} from "../../_service/member.service";
 import {
   FacebookLoginProvider,
   GoogleLoginProvider,

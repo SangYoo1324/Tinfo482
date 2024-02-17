@@ -33,7 +33,7 @@ import {Component, ElementRef, Input, Renderer2, ViewChild} from '@angular/core'
       }
       h1{
         font-size: 3.5rem;
-        color: var(--header-color);
+        color: #375B50;
       }
 
       .section-title-comp-container::before {

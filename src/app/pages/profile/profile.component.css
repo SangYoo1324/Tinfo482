@@ -23,6 +23,11 @@ label, span{
   padding: 0.2rem 0.5rem;
 }
 
+.admin-btn{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .note{
   width: 80%;
 }
