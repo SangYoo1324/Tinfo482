@@ -9,6 +9,10 @@ export class MemberAuthService {
 
   constructor( private asyncService: AsnynchronousService, private memberService:MemberService) { }
 
+  public getId(){
+    return JSON.parse(localStorage.getItem("id")!);
+  }
+
   public setUsernameEmail(username:string, email:string, id:number){
     localStorage.setItem("username", JSON.stringify(username));
     localStorage.setItem("email", JSON.stringify(email));

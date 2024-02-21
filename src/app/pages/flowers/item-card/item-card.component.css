@@ -1,4 +1,7 @@
 
+h3{
+  margin-bottom: 3rem;
+}
 
 .bottom{
   max-height: 50px;
@@ -14,8 +17,10 @@
 
 .top{
   position:relative;
+  background-position: center;
+  background-size: cover;
   border-radius: 5px;
-  background: black;
+  /*background: black;*/
   height: 400px;
   width: 100%;
 }

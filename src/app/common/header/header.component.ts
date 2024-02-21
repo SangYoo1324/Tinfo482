@@ -59,7 +59,7 @@ import {AsnynchronousService} from "../../_service/asnynchronous.service";
       </div>
       <div class="auth-box" >
         <i *ngIf="isLoggedIn" routerLink="profile" class="fa-solid fa-user"></i>
-        <i *ngIf="isLoggedIn" class="fa-solid fa-cart-shopping"></i>
+        <i *ngIf="isLoggedIn" [routerLink]="['/cart', userId]" class="fa-solid fa-cart-shopping"></i>
       </div>
 <!--      [ngClass]="{'not-logged-in':!isLoggedIn}"-->
       <div class="header-user" >
@@ -144,7 +144,14 @@ export class HeaderComponent {
 
   constructor(private renderer:Renderer2,private memberAuthService:MemberAuthService, private asyncService: AsnynchronousService) {
   }
+
+  userId = 0;
+
   ngOnInit(){
+
+
+      this.userId = this.memberAuthService.getId();
+
     console.log(this.memberAuthService.isLoggedIn() as boolean);
 
     //if isLoggedin() true, emit true for the isLoggedIn stream

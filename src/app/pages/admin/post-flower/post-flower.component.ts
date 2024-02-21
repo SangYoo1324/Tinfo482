@@ -216,6 +216,7 @@ export class PostFlowerComponent {
   this.itemService.postFlower(this.completeFormPackage).subscribe(resp=>{
     console.log(resp);
     alert("Flower has been successuflly uploaded!");
+    this.itemService.flowerListDataStream.next(this.itemService.fetchFlowers());
   }, error => {
     alert("Something went wrong");
   })

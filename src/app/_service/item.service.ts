@@ -33,4 +33,33 @@ export class ItemService {
     return this.httpClient.get(this.api_url+"/api/accs", {headers:this.requestHeader});
   }
 
+  fetchTargetCompleteItem(id:number){
+    return this.httpClient.get(this.api_url+`/api/item/${id}`,{headers:this.requestHeader});
+  }
+
+
+  completeItemListDataStream: BehaviorSubject<Observable<any>> = new BehaviorSubject<Observable<any>>(this.fetchCompleteItem());
+  fetchCompleteItem(){
+    return this.httpClient.get(this.api_url+ "/api/items", {headers:this.requestHeader});
+  }
+
+  relateAcc(flowerId:number, accId:number){
+    return this.httpClient.post(this.api_url+`/api/flower/acc/relate/${flowerId}/${accId}`,null);
+  }
+
+
+  //delete
+  deleteFlower(flowerId:number){
+    return this.httpClient.delete(this.api_url+`/api/flower/${flowerId}`);
+  }
+
+  deleteAcc(accId:number){
+    return this.httpClient.delete(this.api_url+`/api/acc/${accId}`);
+  }
+
+  unrelateAcc(accId:number){
+    return this.httpClient.delete(this.api_url+`/api/completeitem/remove/all/acc/${accId}`);
+  }
+
+
 }

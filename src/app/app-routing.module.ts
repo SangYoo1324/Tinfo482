@@ -15,7 +15,8 @@ const routes: Routes = [{path:'', component:MainComponent},
   {path: 'forbidden', component: ForbiddenComponent},
 { path: 'profile', loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule),
   canLoad: [LazyAuthGuard], data:{roles:['ROLE_USER']}},
-  { path: 'flowers', loadChildren: () => import('./pages/flowers/flowers.module').then(m => m.FlowersModule) }
+  { path: 'flowers', loadChildren: () => import('./pages/flowers/flowers.module').then(m => m.FlowersModule) },
+  { path: 'cart/:id', loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule),  canLoad: [LazyAuthGuard], data:{roles:['ROLE_USER']} }
 ];
 
 @NgModule({

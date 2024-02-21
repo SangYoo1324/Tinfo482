@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {BehaviorSubject, map, Observable} from "rxjs";
+import {ItemService} from "../../_service/item.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-flowers',
@@ -38,8 +41,12 @@ import { Component } from '@angular/core';
     </section>
     <div class="container">
       <div class="row">
-        <div *ngFor="let item of itemObjectArray let i=index" class="col-lg-3 box">
-          <app-item-card [routerLink]="'/flowers/'+item.id" *ngIf=" i !==3"></app-item-card>
+        <div *ngFor="let item of (completeItems | async) let i=index" class="col-lg-3 box">
+          <app-item-card  *ngIf="i !== 3"
+            [item]="item"
+            [routerLink]="'/flowers/'+item.flowerDto.id"></app-item-card>
+
+
           <div class="placeholder" *ngIf="i ===3">
             <div class="wrap">
               <p>Looking for same day flower delivery?
@@ -47,6 +54,7 @@ import { Component } from '@angular/core';
             </div>
           </div>
         </div>
+
       </div>
 
     </div>
@@ -56,46 +64,35 @@ import { Component } from '@angular/core';
 })
 export class FlowersComponent {
 
+  constructor(private itemService:ItemService, private sanitizer: DomSanitizer) {
+  }
 
-  itemObjectArray = [
-    {
-      name: "aaaaaa",
-      price: 1,
-    id:1
-    },
-    {
-      name: "aaaaaa",
-      price: 1,
-      id:1},
-    {
-      name: "aaaaaa",
-      price: 1,
-      id:1},
-    {
-      name: "aaaaaa",
-      price: 1,
-      id:1},
-    {
-      name: "aaaaaa",
-      price: 1,
-      id:1},
-    {
-      name: "aaaaaa",
-      price: 1,
-      id:1},
-    {
-      name: "aaaaaa",
-      price: 1,
-      id:1},
-    {
-      name: "aaaaaa",
-      price: 1,
-      id:1},
-    {
-      name: "aaaaaa",
-      price: 1,
-      id:1}
-  ]
+  completeItemStream$!:BehaviorSubject<any>;
+
+  completeItems!: Observable<any>;
+
+  dummy: any = null;
+
+  ngOnInit(){
+   this.completeItemStream$ = this.itemService.completeItemListDataStream;
+
+   this.completeItemStream$.subscribe(obs=>{
+
+     this.completeItems = obs.pipe(
+         map((obs:any[]) => {
+           // insert dummy object for 1st row 4th column placeholder
+           return [...obs.slice(0, 3), this.dummy, ...obs.slice(3)];
+         }
+         ))
+   });
+
+
+
+
+
+
+  }
+
 
 
 }

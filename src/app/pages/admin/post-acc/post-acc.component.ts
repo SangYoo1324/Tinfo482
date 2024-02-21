@@ -195,6 +195,7 @@ export class PostAccComponent {
     this.itemService.postAcc(this.completeFormPackage).subscribe(resp=>{
       console.log(resp);
       alert("Acc has been successuflly uploaded!");
+      this.itemService.accListDataStream.next(this.itemService.fetchAccs());
     }, error => {
       alert("Something went wrong");
     })
