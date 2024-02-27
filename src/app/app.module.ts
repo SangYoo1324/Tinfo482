@@ -22,7 +22,7 @@ import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig} fro
 import {PageTitleComponent} from "./common/page-title/page-title.component";
 import {PostFlowerComponent} from "./pages/admin/post-flower/post-flower.component";
 import {PostAccComponent} from "./pages/admin/post-acc/post-acc.component";
-import {TableComponent} from "./common/table/table.component";
+
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 import {ListAdminPanelComponent} from "./pages/admin/list-admin-panel/list-admin-panel.component";
 import {MatCell, MatCellDef, MatColumnDef, MatHeaderCell, MatHeaderCellDef} from "@angular/material/table";
@@ -54,7 +54,7 @@ import {CompleteItemListComponent} from "./pages/admin/complete-item-list/comple
     PageTitleComponent,
     PostFlowerComponent,
     PostAccComponent,
-    TableComponent,
+
     CKEditorModule,
     ListAdminPanelComponent,
     MatColumnDef,

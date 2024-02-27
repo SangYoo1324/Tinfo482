@@ -1,4 +1,8 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 
 /*bootstrap override */
 span.input-group-text{

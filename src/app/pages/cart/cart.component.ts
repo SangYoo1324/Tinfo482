@@ -25,7 +25,12 @@ import {MemberAuthService} from "../../_auth/member-auth.service";
       </div>
     </section>
 
-    <section></section>
+    <div class="container line"></div>
+
+
+        <app-delivery-select></app-delivery-select>
+
+    <app-footer></app-footer>
 
     <style>
       .title>h1{

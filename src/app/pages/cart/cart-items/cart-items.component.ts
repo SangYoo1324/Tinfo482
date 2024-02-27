@@ -32,7 +32,7 @@ import {NgForOf, NgIf} from "@angular/common";
                   </div>
                 </div>
                 <div class="col-lg-1">
-                  <p class="remove">remove</p>
+                  <p class="remove" (click)="removeItemFromCart()">remove</p>
                 </div>
               </div>
             </div>
@@ -43,25 +43,31 @@ import {NgForOf, NgIf} from "@angular/common";
 
           <div class="price-wrap row">
             <div class="col-lg-7">
-              <small>Special Request? Need to add info? Leave us a note with your order!</small>
-              <textarea name="" id="" cols="50" rows="4"></textarea>
+              <small class="mt-[2rem] mb-[1rem]">** Special Request? Need to add info? Leave us a note with your order!</small>
+              <textarea name="" id="" cols="55" rows="4"></textarea>
 
             </div>
             <div class="col-lg-5">
 
-              <div class="totalPrice">
-                <div class="price">
-                  <label>SubTotal</label>
+              <div class="totalPrice mt-[5rem]">
+                <div class="price flex justify-between mb-[1rem]">
+                  <label class="font-bold">SubTotal</label>
                   <div>$ 39.00</div>
                 </div>
+                <div class="tax flex justify-between">
+                  <label class="font-bold">Tax</label>
+                  <div>$ 3.90</div>
+                </div>
 
-                <label >Tax</label>
-                <div>$ 3.90</div>
               </div>
+
+
 
             </div>
           </div>
         </div>
+
+
 
   `,
   styles: [`
@@ -139,7 +145,8 @@ import {NgForOf, NgIf} from "@angular/common";
 
 
   textarea{
-
+      border: 1px solid #375B50;
+      border-radius: 1rem;
   }
 
   `]
@@ -172,6 +179,10 @@ export class CartItemsComponent {
     if(q>1){
       this.object[i].quantity--;
     }
+
+  }
+
+  removeItemFromCart(){
 
   }
 
