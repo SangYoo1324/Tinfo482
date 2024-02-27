@@ -1,5 +1,5 @@
 const dev_environment_url = 'http://localhost:8080'
-const prod_environment_url = 'http://ec2-100-21-105-141.us-west-2.compute.amazonaws.com'
+const prod_environment_url = 'https://ec2-100-21-105-141.us-west-2.compute.amazonaws.com'
 
 //http://ec2-44-242-115-211.us-west-2.compute.amazonaws.com:8080
 export const env_var= {
